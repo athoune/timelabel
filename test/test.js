@@ -8,3 +8,12 @@ test("periods", function() {
     t = new timelabel(start, end);
     ok(t.period(), 'month');
 });
+
+
+test("add", function() {
+    var d = new Date(2013, 12, 24);
+    var dd = timelabel.addMonth(d, 2);
+    ok(2, dd.getMonth());
+    ok(2014, dd.getFullYear());
+    var ddd = timelabel.addDay(d, 7)
+});
