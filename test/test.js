@@ -14,6 +14,9 @@ test("periods", function() {
 
 test("labels", function() {
     var delta = new timelabel(new Date(1984, 11, 13), new Date(2013, 5, 11));
-    var l = delta.labels();
-    equal(l.length, 341);
+    var l = delta.labels(20);
+    l.forEach(function(d) {
+        console.log(d.format());
+    })
+    equal(l.length, 29);
 });
