@@ -13,14 +13,16 @@ test("periods", function() {
 });
 
 test("add", function() {
-    var d = new Date(2013, 12, 24);
+    // December is 11, thank you js.
+    var d = new Date(2013, 11, 24);
+    equal(d.getMonth(), 11);
     var dd = timelabel.addMonth(d, 2);
     equal(dd.getMonth(), 1);
     equal(dd.getFullYear(), 2014);
     dd = timelabel.addDay(d, 8);
     equal(dd.getFullYear(), 2014);
-    equal(dd.getMonth(), 1);
-    equal(dd.getDate(), 1);
+    equal(dd.getMonth(), 0); //january
+    equal(dd.getDate(), 1, 'The first');
     dd = timelabel.addYear(d, 2);
     equal(dd.getFullYear(), 2015);
 });
@@ -28,6 +30,5 @@ test("add", function() {
 test("labels", function() {
     var delta = new timelabel(new Date(1984, 11, 13), new Date(2013, 5, 11));
     var l = delta.labels();
-    console.log(l.length, l);
-    ok(true)
+    equal(l.length, 341);
 });
