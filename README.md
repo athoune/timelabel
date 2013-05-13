@@ -3,6 +3,8 @@ Time Label
 
 Add nice time label for your graph.
 
+Use the wonderful [moment.js](http://momentjs.com/docs/) library.
+
 Licence
 -------
 
